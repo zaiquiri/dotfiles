@@ -6,7 +6,7 @@ RVM=/.rvm/bin
 export PATH=$LOCAL:$POSTGRES:$RVM:$PATH
 
 # Prompt
-# source ~/.bash-git-prompt/gitprompt.sh
+source ~/.bash-git-prompt/gitprompt.sh
 
 # Democracy Now! workflow
 source ~/.dnow-shortcuts.sh
