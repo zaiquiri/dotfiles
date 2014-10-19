@@ -43,6 +43,9 @@ inoremap ˚ <Esc>:m .-2<CR>==gi
 vnoremap ∆ :m '>+1<CR>gv=gv
 vnoremap ˚ :m '<-2<CR>gv=gv
 
+" indentation
+nnoremap <c-i> mzgg=G`z<cr>
+
 " Vroom mappings
 let g:vroom_map_keys = 0
 map <leader>t :VroomRunTestFile<cr>
@@ -54,6 +57,9 @@ map <leader>f :NERDTreeFind<cr>
 map <leader>F :NERDTreeFind<cr><C-l>
 map <C-o> :NERDTreeToggle %<cr>
 
+" Tagbar mappings
+nmap <leader>] :TagbarOpenAutoClose<cr>
+
 " Plugins (managed by Vundle)
 Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
@@ -64,6 +70,7 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-cucumber'
 Plugin 'skalnik/vim-vroom'
 Plugin 'tpope/vim-endwise'
+Plugin 'majutsushi/tagbar'
 
 "[vundle end]
 call vundle#end()
