@@ -2,8 +2,8 @@
 # Path
 POSTGRES=/Applications/Postgres93.app/Contents/MacOS/bin
 LOCAL=/usr/local/bin
-RVM=/.rvm/bin
-export PATH=$LOCAL:$POSTGRES:$RVM:$PATH
+RVM=$HOME/.rvm/gems/ruby-1.9.3-p547/bin
+export PATH=$RVM:$LOCAL:$POSTGRES:$PATH
 
 # Prompt
 source ~/.bash-git-prompt/gitprompt.sh

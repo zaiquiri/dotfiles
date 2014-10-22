@@ -1,4 +1,4 @@
-" For Vundle
+" Vundle setup
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -19,6 +19,9 @@ set shiftwidth=2
 set shiftround
 set expandtab
 
+" Dashes are part of words
+set iskeyword+=-
+
 " Easier split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -31,7 +34,7 @@ set splitright
 " White space
 set list listchars=tab:»·,trail:·
 
-" Text width highlighting
+" Long line highlighting
 highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
 match OverLength /\%81v.*/
 
@@ -46,32 +49,65 @@ vnoremap ˚ :m '<-2<CR>gv=gv
 " indentation
 nnoremap <c-i> mzgg=G`z<cr>
 
-" Vroom mappings
+" Vroom
 let g:vroom_map_keys = 0
 map <leader>t :VroomRunTestFile<cr>
 map <leader>T :VroomRunNearestTest<cr>
 map <leader>l :VroomRunLastTest <cr>
 
-" NERDTree mappings
+" NERDTree
 map <leader>f :NERDTreeFind<cr>
 map <leader>F :NERDTreeFind<cr><C-l>
-map <C-o> :NERDTreeToggle %<cr>
+map <leader>[ :NERDTreeToggle %<cr>
 
-" Tagbar mappings
-nmap <leader>] :TagbarOpenAutoClose<cr>
+" Tagbar
+let g:tagbar_autoclose = 1
+nmap <leader>] :TagbarToggle<cr>
+
+" CtrlP
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ -g ""'
+let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+
+" Syntastic
+nnoremap <leader>sc :SyntasticCheck<cr>
+nnoremap <leader>se :Errors<cr>
+nnoremap <leader>sr :SyntasticReset<cr>
+
+let g:syntastic_enable_signs=1
+let g:syntastic_html_jshint_conf = "$HOME/.jshintrc"
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_check_on_wq = 0
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_error_symbol = '✗✗'
+let g:syntastic_style_error_symbol = '✠✠'
+let g:syntastic_warning_symbol = '∆∆'
+let g:syntastic_style_warning_symbol = '≈≈'
 
 " Plugins (managed by Vundle)
 Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
+Plugin 'JazzCore/ctrlp-cmatcher'
 Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-endwise'
+Plugin 'Raimondi/delimitMate'
+Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-cucumber'
 Plugin 'skalnik/vim-vroom'
-Plugin 'tpope/vim-endwise'
-Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-fugitive'
 
-"[vundle end]
 call vundle#end()
 filetype plugin indent on
