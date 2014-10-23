@@ -9,6 +9,7 @@ set showcmd
 set autowrite
 syntax on
 let mapleader = "\\"
+colorscheme jellybeans
 
 " Numbers
 set number
@@ -74,6 +75,10 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ -g ""'
 let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 
+" Airline
+set laststatus=2
+let g:airline_theme="jellybeans"
+
 " Syntastic
 nnoremap <leader>sc :SyntasticCheck<cr>
 nnoremap <leader>se :Errors<cr>
@@ -108,6 +113,8 @@ Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-cucumber'
 Plugin 'skalnik/vim-vroom'
 Plugin 'tpope/vim-fugitive'
+Plugin 'bling/vim-airline'
+Plugin 'nanotech/jellybeans.vim'
 
 call vundle#end()
 filetype plugin indent on
