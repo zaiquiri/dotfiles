@@ -5,7 +5,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " General settings
-set backupdir=~/tmp
+set backup
+set backupdir=~/.vim/backup
+set directory=~/.vim/tmp
 set showcmd
 set autowrite
 syntax on
@@ -116,6 +118,7 @@ Plugin 'skalnik/vim-vroom'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'mileszs/ack.vim'
 
 call vundle#end()
 filetype plugin indent on
