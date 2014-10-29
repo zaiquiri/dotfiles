@@ -5,6 +5,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " General settings
+set backupdir=~/tmp
 set showcmd
 set autowrite
 syntax on
@@ -36,7 +37,7 @@ set splitright
 set list listchars=tab:»·,trail:·
 
 " Long line highlighting
-highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
+highlight OverLength ctermfg=131
 match OverLength /\%81v.*/
 
 " Moving lines around
@@ -76,7 +77,7 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
 let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 
 " Airline
-set laststatus=2
+" set laststatus=2
 let g:airline_theme="jellybeans"
 
 " Syntastic
