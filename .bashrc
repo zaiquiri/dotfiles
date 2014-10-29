@@ -46,6 +46,9 @@ alias gc='git commit'
 alias gd='git diff'
 alias gco='git checkout '
 
+# rails
+alias be='bundle exec'
+
 # Functions
 
 function eclipse() {

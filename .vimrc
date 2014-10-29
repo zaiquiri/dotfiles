@@ -5,14 +5,15 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " General settings
-set backup
-set backupdir=~/.vim/backup
-set directory=~/.vim/tmp
 set showcmd
 set autowrite
 syntax on
 let mapleader = "\\"
 colorscheme jellybeans
+set cursorline
+set backup
+set backupdir=~/.vim/backup
+set directory=~/.vim/tmp
 
 " Numbers
 set number
