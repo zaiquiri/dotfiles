@@ -87,6 +87,7 @@ let g:airline_theme="jellybeans"
 nnoremap <leader>sc :SyntasticCheck<cr>
 nnoremap <leader>se :Errors<cr>
 nnoremap <leader>sr :SyntasticReset<cr>
+nnoremap <leader>st :SyntasticToggleMode<cr>
 
 let g:syntastic_enable_signs=1
 let g:syntastic_html_jshint_conf = "$HOME/.jshintrc"
