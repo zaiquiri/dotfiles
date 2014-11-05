@@ -1,4 +1,3 @@
-
 # Path
 POSTGRES=/Applications/Postgres93.app/Contents/MacOS/bin
 LOCAL=/usr/local/bin
@@ -23,12 +22,12 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 alias ?='mvim +CtrlP'
 alias cpwd='pwd | pbcopy'
-alias editbash='mvim ~/.bashrc'
-alias editvim='mvim ~/.vimrc'
+alias vim='mvim -v'
+alias editbash='vim ~/.bashrc'
+alias editvim='vim ~/.vimrc'
 alias ll='ls -alGF'
 alias llc='ll | nl'
 alias meow='curl -s -o ~/Pictures/cat.gif $(curl -s http://edgecats.net/random) && open ~/Pictures/cat.gif && sleep 5; rm -f ~/Pictures/cat.gif;'
-alias mvim='mvim -v'
 alias ping10='ping -c10'
 alias ping2='ping -c2'
 alias play='cd ~/playground'

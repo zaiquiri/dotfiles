@@ -10,7 +10,13 @@ set autowrite
 syntax on
 let mapleader = "\\"
 colorscheme jellybeans
-set cursorline
+
+" Searching
+set hlsearch
+set incsearch
+set smartcase
+
+" Backup directories
 set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
@@ -24,6 +30,18 @@ set shiftwidth=2
 set shiftround
 set expandtab
 
+" Disable beeping and flashing
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+
+" Enhanced cursor
+" set cursorcolumn
+set cursorline
+
+" History
+set history=1000
+set undolevels=1000
+
 " Dashes are part of words
 set iskeyword+=-
 
@@ -32,6 +50,10 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Resize splits
+nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 set splitbelow
 set splitright
@@ -53,6 +75,7 @@ vnoremap ˚ :m '<-2<CR>gv=gv
 
 " indentation
 nnoremap <c-i> mzgg=G`z<cr>
+
 
 " Vroom
 let g:vroom_map_keys = 0
@@ -79,9 +102,30 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ -g ""'
 let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 
+" DelimitMate
+set backspace=indent,eol,start
+let delimitMate_expand_cr = 1
+let delimitMate_jump_expansion = 1
+
 " Airline
-" set laststatus=2
 let g:airline_theme="jellybeans"
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
 
 " Syntastic
 nnoremap <leader>sc :SyntasticCheck<cr>
@@ -103,6 +147,11 @@ let g:syntastic_style_error_symbol = '✠✠'
 let g:syntastic_warning_symbol = '∆∆'
 let g:syntastic_style_warning_symbol = '≈≈'
 
+" Ruby autocomplete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+
 " Plugins (managed by Vundle)
 Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
@@ -121,6 +170,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
 
 call vundle#end()
 filetype plugin indent on
