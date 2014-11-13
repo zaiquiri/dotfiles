@@ -53,7 +53,7 @@ set cursorcolumn
 set cursorline
 
 " History
-se
+set history=1000
 set undolevels=1000
 
 " Dashes are part of words
