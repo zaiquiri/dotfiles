@@ -56,6 +56,10 @@ set cursorline
 set history=1000
 set undolevels=1000
 
+" < > shifts keep selection
+vnoremap < <gv
+vnoremap > >gv
+
 " Dashes are part of words
 set iskeyword+=-
 
@@ -66,8 +70,9 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Resize splits
-nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <silent> <Leader>+ 15<C-W>>
+nnoremap <silent> <Leader>- 15<C-W><
+nnoremap <silent> <Leader>= <C-W>=
 
 set splitbelow
 set splitright
@@ -89,7 +94,7 @@ vnoremap ˚ :m '<-2<CR>gv=gv
 
 " indentation
 filetype plugin indent on
-nnoremap <c-i> mzgg=G`z<cr>
+nnoremap <leader>i mzgg=G`z<cr>
 
 
 " Vroom
@@ -106,6 +111,9 @@ map <leader>[ :NERDTreeToggle %<cr>
 " Tagbar
 let g:tagbar_autoclose = 1
 nmap <leader>] :TagbarToggle<cr>
+
+" Easytags
+let g:easytags_events = ['BufWritePost']
 
 " CtrlP
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
