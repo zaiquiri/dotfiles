@@ -18,8 +18,9 @@ autocmd BufLeave,FocusLost * silent! wall
 
 " COLOR SCHEMES
   colorscheme jellybeans
+" colorscheme flattown
 " colorscheme Sunburst
-" colorscheme molokai
+" colorscheme distinguished
 " colorscheme strange
 " colorscheme jellyx
 
@@ -81,8 +82,8 @@ set splitright
 set list listchars=tab:»·,trail:·
 
 " Long line highlighting
-highlight OverLength ctermfg=131
-match OverLength /\%81v.*/
+highlight OverLength ctermbg=124
+match OverLength /\%81v/
 
 " Moving lines around
 nnoremap ∆ :m .+1<CR>==
@@ -113,7 +114,9 @@ let g:tagbar_autoclose = 1
 nmap <leader>] :TagbarToggle<cr>
 
 " Easytags
-let g:easytags_events = ['BufWritePost']
+let g:easytags_async = 1
+let g:easytags_auto_highlight = 0
+let g:easytags_always_enabled = 1
 
 " CtrlP
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
@@ -124,7 +127,7 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore "**/*.pyc"
       \ -g ""'
 let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
-nmap ; :CtrlPBuffer<CR>
+nnoremap ; :CtrlPBuffer<CR>
 
 " DelimitMate
 set backspace=indent,eol,start
@@ -200,7 +203,6 @@ if has("autocmd")
   filetype indent plugin on
 endif
 
-
 " Plugins (managed by Vundle)
 Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
@@ -214,18 +216,18 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
-Plugin 'mileszs/ack.vim'
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
-" Ruby/Rails
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-bundler'
-Plugin 'skalnik/vim-vroom'
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'kana/vim-textobj-user'
-Plugin 'ecomba/vim-ruby-refactoring'
+" Ruby/Rails
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+Plugin 'skalnik/vim-vroom'
 Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'ecomba/vim-ruby-refactoring'
+" HTML
+Plugin 'mattn/emmet-vim'
 
 call vundle#end()
 filetype plugin indent on
