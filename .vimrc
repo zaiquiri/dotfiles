@@ -1,15 +1,59 @@
-" Vundle setup
-set nocompatible
-filetype off
+"============================
+"      VUNDLE PLUGINS
+"============================
+set nocompatible "required by Vundle
+filetype off "required by Vundle
+
+" Add Vundle to runtime path and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" General settings
-set autowrite
+" Let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Plugins
+Plugin 'JazzCore/ctrlp-cmatcher' "must compile
+Plugin 'Valloric/YouCompleteMe' "must compile
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'bling/vim-airline'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-surround'
+Plugin 'Raimondi/delimitMate'
+Plugin 'tpope/vim-endwise'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-cucumber'
+Plugin 'kana/vim-textobj-user'
+" Ruby/Rails
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+Plugin 'skalnik/vim-vroom'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'ecomba/vim-ruby-refactoring'
+" HTML
+Plugin 'mattn/emmet-vim'
+
+" All plugins must be added before this line
+call vundle#end()
+filetype plugin indent on
+
+" General (self-explanatory) stuff
 syntax on
-let mapleader = "\\"
-set noshowmode
 set showcmd
+let mapleader = "\\"
+map <Leader>ra :%s/
+map <C-t> <esc>:tabnew<CR>
+
+" Easier paste from clipboard
+map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+
+" j and k work the same on wrapped lines
 nmap j gj
 nmap k gk
 
@@ -24,12 +68,12 @@ autocmd BufLeave,FocusLost * silent! wall
 " colorscheme strange
 " colorscheme jellyx
 
-" Searching
+" Enhanced searching
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-map <leader>x :noh<cr>
+map <leader>h :noh<cr>
 
 " Backup directories
 set backup
@@ -39,7 +83,9 @@ set directory=~/.vim/tmp
 " Numbers
 set number
 set numberwidth=5
+set relativenumber
 
+" Tabs and spaces
 set tabstop=2
 set shiftwidth=2
 set shiftround
@@ -47,13 +93,12 @@ set expandtab
 
 " Disable beeping and flashing
 set noerrorbells visualbell t_vb=
-autocmd GUIEnter * set visualbell t_vb=
 
-" Enhanced cursor
+" Enhanced cursor (cross-hairs)
 set cursorcolumn
 set cursorline
 
-" History
+" Lots of History
 set history=1000
 set undolevels=1000
 
@@ -61,8 +106,9 @@ set undolevels=1000
 vnoremap < <gv
 vnoremap > >gv
 
-" Dashes are part of words
+" Add symbols to words
 set iskeyword+=-
+autocmd FileType ruby,eruby,yaml setlocal iskeyword+=?
 
 " Easier split navigation
 nnoremap <C-J> <C-W><C-J>
@@ -70,7 +116,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Resize splits
+" Easier split resizing
 nnoremap <silent> <Leader>+ 15<C-W>>
 nnoremap <silent> <Leader>- 15<C-W><
 nnoremap <silent> <Leader>= <C-W>=
@@ -97,7 +143,6 @@ vnoremap ˚ :m '<-2<CR>gv=gv
 filetype plugin indent on
 nnoremap <leader>i mzgg=G`z<cr>
 
-
 " Vroom
 let g:vroom_map_keys = 0
 map <leader>t :VroomRunTestFile<cr>
@@ -119,15 +164,19 @@ let g:easytags_auto_highlight = 0
 let g:easytags_always_enabled = 1
 
 " CtrlP
+" faster indexing with Silver Searcher
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore .git
       \ --ignore .svn
       \ --ignore .hg
+      \ --ignore .vtt
       \ --ignore .DS_Store
       \ --ignore "**/*.pyc"
       \ -g ""'
+" faster matching with cmatch
 let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 nnoremap ; :CtrlPBuffer<CR>
+let g:ctrlp_clear_cache_on_exit = 0
 
 " DelimitMate
 set backspace=indent,eol,start
@@ -141,6 +190,8 @@ let g:airline_detect_modified=1
 let g:airline_inactive_collapse=1
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=':t'
+"Get rid of default mode indicator
+set noshowmode
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -192,6 +243,15 @@ let g:syntastic_style_error_symbol = '✠✠'
 let g:syntastic_warning_symbol = '⧲⪼'
 let g:syntastic_style_warning_symbol = '≈≈'
 
+" Vim Surround
+let g:surround_37 = "<% \r %>"
+let g:surround_61 = "<%= \r %>"
+
+" UtilSnip
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
 " Ruby autocomplete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
@@ -202,32 +262,3 @@ runtime macros/matchit.vim
 if has("autocmd")
   filetype indent plugin on
 endif
-
-" Plugins (managed by Vundle)
-Plugin 'gmarik/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'JazzCore/ctrlp-cmatcher'
-Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
-Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/syntastic'
-Plugin 'Raimondi/delimitMate'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-cucumber'
-Plugin 'tpope/vim-fugitive'
-Plugin 'bling/vim-airline'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
-Plugin 'kana/vim-textobj-user'
-" Ruby/Rails
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-rails'
-Plugin 'skalnik/vim-vroom'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'ecomba/vim-ruby-refactoring'
-" HTML
-Plugin 'mattn/emmet-vim'
-
-call vundle#end()
-filetype plugin indent on
