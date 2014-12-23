@@ -131,6 +131,24 @@ set list listchars=tab:»·,trail:·
 highlight OverLength ctermbg=124
 match OverLength /\%81v/
 
+" Enhanced paren matching
+hi MatchParen cterm=none ctermbg=black ctermfg=yellow
+
+" use Silver Searcher, not grep
+set grepprg=ag
+
+" tag file search order
+set tags=./tags;
+
+" Better command line completion
+set wildmenu
+set wildmode=list:full
+
+" No esc delay in insert mode
+set noesckeys
+set ttimeout
+set ttimeoutlen=1
+
 " Moving lines around
 nnoremap ∆ :m .+1<CR>==
 nnoremap ˚ :m .-2<CR>==
@@ -244,8 +262,8 @@ let g:syntastic_warning_symbol = '⧲⪼'
 let g:syntastic_style_warning_symbol = '≈≈'
 
 " Vim Surround
-let g:surround_37 = "<% \r %>"
-let g:surround_61 = "<%= \r %>"
+autocmd FileType eruby let g:surround_37 = "<% \r %>"
+autocmd FileType eruby let g:surround_61 = "<%= \r %>"
 
 " UtilSnip
 let g:UltiSnipsExpandTrigger="<c-j>"
@@ -262,3 +280,36 @@ runtime macros/matchit.vim
 if has("autocmd")
   filetype indent plugin on
 endif
+
+"==================================
+" Rename current buffer (from r00k)
+"==================================
+function! RenameFile()
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'), 'file')
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
+endfunction
+map <Leader>n :call RenameFile()<cr>
+
+"=================================
+" Merge tab to split (from r00k)
+"=================================
+function! MergeTabs()
+  if tabpagenr() == 1
+    return
+  endif
+  let bufferName = bufname("%")
+  if tabpagenr("$") == tabpagenr()
+    close!
+  else
+    close!
+    tabprev
+  endif
+  split
+  execute "buffer " . bufferName
+endfunction
+nmap <C-M>b :call MergeTabs()<CR>
