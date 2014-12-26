@@ -53,6 +53,15 @@ map <C-t> <esc>:tabnew<CR>
 " Easier paste from clipboard
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 
+" Folding
+set foldmethod=manual
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
+
+" Better matching for html
+autocmd FileType html,eruby let b:match_words = '<\(\w\w*\):</\1,{:}'
+
 " j and k work the same on wrapped lines
 nmap j gj
 nmap k gk
