@@ -36,6 +36,7 @@ Plugin 'tpope/vim-rails'
 Plugin 'skalnik/vim-vroom'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'ecomba/vim-ruby-refactoring'
+Plugin 'danchoi/ri.vim'
 " HTML
 Plugin 'mattn/emmet-vim'
 

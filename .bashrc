@@ -35,6 +35,7 @@ alias srcbash='source ~/.bashrc'
 alias dem='cd ~/democracynow.org'
 alias speed='ping -c10 8.8.8.8'
 alias home='cd ~'
+alias cl='clear; ll'
 
 # git
 alias gs='git status '
@@ -46,6 +47,8 @@ alias gicd='git icdiff'
 alias gco='git checkout '
 alias gp='git push'
 alias gpo='git push origin master'
+alias wgc='gc -am "WIP"'
+alias gcam='gc -am'
 
 # rails
 alias be='bundle exec'
