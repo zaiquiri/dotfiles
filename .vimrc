@@ -60,6 +60,10 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=2
 
+" Tag navigation
+nmap <Leader>tn :tn<cr>
+nmap <Leader>tp :tp<cr>
+
 " Better matching for html
 autocmd FileType html,eruby let b:match_words = '<\(\w\w*\):</\1,{:}'
 
