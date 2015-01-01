@@ -40,9 +40,10 @@ Plugin 'danchoi/ri.vim'
 " HTML
 Plugin 'mattn/emmet-vim'
 
-" All plugins must be added before this line
+"===All plugins must be added before this====
 call vundle#end()
 filetype plugin indent on
+"============================================
 
 " General (self-explanatory) stuff
 syntax on
@@ -294,6 +295,9 @@ runtime macros/matchit.vim
 if has("autocmd")
   filetype indent plugin on
 endif
+
+" Regular arrow keys in insert mode
+set nocompatible
 
 "==================================
 " Rename current buffer (from r00k)
