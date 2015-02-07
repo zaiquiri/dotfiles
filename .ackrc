@@ -19,3 +19,4 @@
 --ignore-file=ext:log
 --ignore-file=is:tags
 --ignore-dir=is:rails
+--ignore-dir=is:coverage
