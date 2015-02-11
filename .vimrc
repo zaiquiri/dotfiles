@@ -30,6 +30,7 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-cucumber'
 Plugin 'kana/vim-textobj-user'
+Plugin 'rking/ag.vim'
 " Ruby/Rails
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
