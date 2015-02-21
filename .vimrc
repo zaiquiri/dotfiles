@@ -1,3 +1,4 @@
+set t_Co=256
 "============================
 "      VUNDLE PLUGINS
 "============================
@@ -176,6 +177,9 @@ vnoremap ˚ :m '<-2<CR>gv=gv
 " indentation
 filetype plugin indent on
 nnoremap <leader>i mzgg=G`z<cr>
+
+" good commit messages :)
+autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " Vroom
 let g:vroom_map_keys = 0
