@@ -10,7 +10,6 @@ brew install the_silver_searcher
 brew install curl
 brew install wget
 brew install go
-brew install ruby
 brew install rust
 brew install lua
 brew install python
