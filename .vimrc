@@ -41,6 +41,8 @@ Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'danchoi/ri.vim'
 " HTML
 Plugin 'mattn/emmet-vim'
+" Go
+Plugin 'fatih/vim-go'
 
 "===All plugins must be added before this====
 call vundle#end()
