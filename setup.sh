@@ -7,7 +7,6 @@ brew install macvim
 brew install ctags
 brew install ack
 brew install the_silver_searcher
-brew install git
 brew install curl
 brew install wget
 brew install go
