@@ -1,10 +1,20 @@
 #!/bin/bash
 
-#install hombrew
+# Make sure Xcode is installed
+while [ ! -d "/Applications/Xcode.app" ]
+do
+xcode-select --install
+done
+# agree to the Xcode terms
+sudo xcodebuild -license
+
+# install hombrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 # brew installs
+brew install git
 brew install macvim
 brew install ctags
+brew install cmake
 brew install ack
 brew install the_silver_searcher
 brew install curl
@@ -13,6 +23,7 @@ brew install go
 brew install rust
 brew install lua
 brew install python
+brew linkapps python # symlink python apps
 brew install caskroom/cask/brew-cask
 # brew cask installs
 brew cask install libreoffice
@@ -27,12 +38,19 @@ brew cask install dropbox
 brew cask install evernote
 brew cask install flux
 brew cask install iterm2
-brew cask install u-torrent
+brew cask install utorrent
 brew cask install the-unarchiver
 brew cask install sequel-pro
+
+# Make dir for gopath
+mkdir ~/go
+
 # simlink macvim
 ln -s /usr/local/bin/mvim /usr/local/bin/vim
 # make dirs that vim needs
+if [ ! -d "~/.vim" ]; then
+  mkdir ~/.vim
+fi
 mkdir ~/.vim/backup
 mkdir ~/.vim/tmp
 mkdir ~/.vim/colors
@@ -45,6 +63,23 @@ cd ~/.vim/bundle/YouCompleteMe
 git submodule update --init --recursive
 ./install.sh --clang-completer
 cd ~
+
+# add improved color diff for git
+curl -o /usr/local/bin/icdiff https://raw.githubusercontent.com/jeffkaufman/icdiff/master/icdiff
+curl -o /usr/local/bin/git-icdiff https://raw.githubusercontent.com/jeffkaufman/icdiff/master/git-icdiff
+chmod +x /usr/local/bin/icdiff
+chmod +x /usr/local/bin/git-icdiff
+
+# Move chrome to /Applications, so 1Password will work
+mv /opt/homebrew-cask/Caskroom/google-chrome/latest/Google\ Chrome.app/ /Applications/
+# ...and delete brew's simlink
+rm /Users/zachlindberg/Applications/Google\ Chrome.app
+
+# set up git
+git config --global user.name "zaiquiri"
+git config --global user.email zdl2102@columbia.edu
+git config --global core.editor vim
+git config --global push.default current
 
 # Menu bar: show remaining battery time (on pre-10.8); hide percentage
 defaults write com.apple.menuextra.battery ShowPercent -string "NO"
@@ -59,3 +94,5 @@ defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder QLEnableTextSelection -bool true
 # Disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+source ~/.bashrc
