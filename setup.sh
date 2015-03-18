@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Logging
+exec 2>&1 | tee ~/Desktop/setup.log
+
 # Make sure Xcode is installed
 while [ ! -d "/Applications/Xcode.app" ]
 do
@@ -59,6 +62,7 @@ wget -O ~/.vim/colors/jellybeans.vim https://github.com/nanotech/jellybeans.vim/
 # setup Vundle & plugins
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
+# Compile YouCompleteMe
 cd ~/.vim/bundle/YouCompleteMe
 git submodule update --init --recursive
 ./install.sh --clang-completer
@@ -95,4 +99,13 @@ defaults write com.apple.finder QLEnableTextSelection -bool true
 # Disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-source ~/.bashrc
+# Reboot
+read -r -p "Would you like to restart now? [y/N]" response
+echo
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
+then
+    sudo shutdown -r now
+else
+    echo
+    echo "You must restart your computer to complete setup."
+fi
