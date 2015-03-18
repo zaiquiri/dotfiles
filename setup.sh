@@ -55,7 +55,7 @@ mkdir ~/.vim/backup
 mkdir ~/.vim/tmp
 mkdir ~/.vim/colors
 # download jellybeans colorshceme
-curl -o ~/.vim/colors/jellybeans.vim https://github.com/nanotech/jellybeans.vim/raw/master/colors/jellybeans.vim
+wget -O ~/.vim/colors/jellybeans.vim https://github.com/nanotech/jellybeans.vim/raw/master/colors/jellybeans.vim
 # setup Vundle & plugins
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
