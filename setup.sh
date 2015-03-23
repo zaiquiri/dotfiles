@@ -67,6 +67,11 @@ vim +PluginInstall +qall
 cd ~/.vim/bundle/YouCompleteMe
 git submodule update --init --recursive
 ./install.sh --clang-completer
+# Compile Ctrl-P cmatcher
+export CFLAGS=-Qunused-arguments
+export CPPFLAGS=-Qunused-arguments
+cd ~/.vim/bundle/ctrlp-cmatcher/
+./install.sh
 cd ~
 
 # add improved color diff for git
