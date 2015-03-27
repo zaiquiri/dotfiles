@@ -80,12 +80,9 @@ nmap k gk
 autocmd BufLeave,FocusLost * silent! wall
 
 " COLOR SCHEMES
-  colorscheme jellybeans
-" colorscheme flattown
-" colorscheme Sunburst
-" colorscheme distinguished
-" colorscheme strange
-" colorscheme jellyx
+colorscheme jellybeans
+" colorscheme lucius
+" LuciusLight
 
 " Enhanced searching
 set hlsearch
