@@ -36,9 +36,7 @@ alias play='cd ~/playground'
 alias please='sudo'
 alias rmx='rm -rf'
 alias srcbash='source ~/.bashrc'
-alias dem='cd ~/democracynow.org'
 alias speed='ping -c10 8.8.8.8'
-alias home='cd ~'
 alias cl='clear; ll'
 
 # git
@@ -50,7 +48,7 @@ alias gd='git diff'
 alias gicd='git icdiff'
 alias gco='git checkout '
 alias gp='git push'
-alias gpo='git push origin master'
+alias gpo='git push origin'
 alias wgc='gc -am "WIP"'
 alias gcam='gc -am'
 
