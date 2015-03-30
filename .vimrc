@@ -300,6 +300,9 @@ if has("autocmd")
   filetype indent plugin on
 endif
 
+" YouCompleteMe
+" let g:loaded_youcompleteme = 1
+
 " Regular arrow keys in insert mode
 set nocompatible
 
