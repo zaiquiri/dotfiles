@@ -2,11 +2,11 @@
 POSTGRES=/Applications/Postgres93.app/Contents/MacOS/bin
 LOCAL=/usr/local/bin
 RVM9=$HOME/.rvm/gems/ruby-1.9.3-p547/bin
-GOROOT=/usr/local/opt/go/libexec/bin
-GOPATH=$HOME/go
 RVM=$HOME/.rvm/bin
+GOROOT=/usr/local/go
+GOBIN=/usr/local/go/bin
 
-export PATH=$RVM9:$LOCAL:$POSTGRES:$GOROOT:$GOPATH:$PATH:$RVM
+export PATH=$RVM9:$LOCAL:$POSTGRES:$PATH:$RVM:$GOBIN
 
 # Prompt
 source ~/.bash-git-prompt/gitprompt.sh
