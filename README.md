@@ -7,5 +7,5 @@ git init
 git remote add origin https://github.com/zaiquiri/dotfiles.git
 git fetch
 git checkout -t origin/master
-chmod +x setup.sh && ./setup.sh
+chmod +x setup.sh && sudo ./setup.sh
 ```
