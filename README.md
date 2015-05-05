@@ -1,6 +1,6 @@
 # dotfiles
 
-First install Xcode and command line tools manually, then to setup, copy and paste this into terminal:
+To setup, copy and paste this into terminal:
 ```
 cd ~
 git init
