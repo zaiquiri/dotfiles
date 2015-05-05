@@ -24,7 +24,6 @@ brew install curl
 brew install wget
 brew install go
 brew install rust
-brew install lua
 brew install python
 brew linkapps python # symlink python apps
 brew install caskroom/cask/brew-cask
