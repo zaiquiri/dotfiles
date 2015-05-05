@@ -21,7 +21,6 @@ brew linkapps python # symlink python apps
 brew install caskroom/cask/brew-cask
 # brew cask installs
 brew cask install java
-brew cask install libreoffice
 brew cask install firefox
 brew cask install google-chrome
 brew cask install bettertouchtool
