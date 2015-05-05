@@ -36,9 +36,9 @@ brew cask install google-chrome
 brew cask install bettertouchtool
 brew cask install alfred
 brew cask install seil
+brew cask install dropbox
 brew cask install 1password
 brew cask install caffeine
-brew cask install dropbox
 brew cask install evernote
 brew cask install flux
 brew cask install iterm2
@@ -90,6 +90,9 @@ git config --global user.name "zaiquiri"
 git config --global user.email zdl2102@columbia.edu
 git config --global core.editor vim
 git config --global push.default current
+touch ~/.gitignore_global
+echo ".DS_Store" >> ~/.gitignore_global
+git config --global core.excludesfile '~/.gitignore_global'
 
 # Menu bar: show remaining battery time (on pre-10.8); hide percentage
 defaults write com.apple.menuextra.battery ShowPercent -string "NO"
