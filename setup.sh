@@ -3,14 +3,6 @@
 # Logging
 exec 2>&1 | tee ~/Desktop/setup.log
 
-# Make sure Xcode is installed
-while [ ! -d "/Applications/Xcode.app" ]
-do
-xcode-select --install
-done
-# agree to the Xcode terms
-sudo xcodebuild -license
-
 # install hombrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 # brew installs
