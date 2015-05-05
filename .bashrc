@@ -38,6 +38,7 @@ alias rmx='rm -rf'
 alias srcbash='source ~/.bashrc'
 alias speed='ping -c10 8.8.8.8'
 alias cl='clear; ll'
+alias gop='export GOPATH=`pwd`'
 
 # git
 alias gs='git status '
@@ -51,6 +52,7 @@ alias gp='git push'
 alias gpo='git push origin'
 alias wgc='gc -am "WIP"'
 alias gcam='gc -am'
+alias gl='git log --oneline'
 
 # rails
 alias be='bundle exec'

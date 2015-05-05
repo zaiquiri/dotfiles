@@ -39,6 +39,7 @@ Plugin 'skalnik/vim-vroom'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'danchoi/ri.vim'
+Plugin 'slim-template/vim-slim'
 " HTML
 Plugin 'mattn/emmet-vim'
 " Go
@@ -71,6 +72,9 @@ nmap <Leader>tp :tp<cr>
 
 " Better matching for html
 autocmd FileType html,eruby let b:match_words = '<\(\w\w*\):</\1,{:}'
+
+" Convert to new hash syntax for ruby
+autocmd FileType ruby map <leader>: :%s/:\([^ ]*\)\(\s*\)=>/\1:/g
 
 " j and k work the same on wrapped lines
 nmap j gj
