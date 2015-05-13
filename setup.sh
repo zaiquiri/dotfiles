@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Logging
-exec 2>&1 | tee ~/Desktop/setup.log
+sudo exec 2>&1 | tee ~/Desktop/setup.log
 
 # install hombrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
