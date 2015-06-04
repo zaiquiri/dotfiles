@@ -53,7 +53,7 @@ filetype plugin indent on
 " General (self-explanatory) stuff
 syntax on
 set showcmd
-let mapleader = "\\"
+let mapleader = "\<Space>"
 map <Leader>ra :%s/
 map <C-t> <esc>:tabnew<CR>
 
