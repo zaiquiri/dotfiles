@@ -11,9 +11,6 @@ export PATH=$RVM9:$LOCAL:$POSTGRES:$PATH:$RVM:$GOBIN
 # Prompt
 source ~/.bash-git-prompt/gitprompt.sh
 
-# Democracy Now! workflow
-source ~/DemocracyNow/shortcuts.sh
-
 #Colors
 export LSCOLORS=Gxexcxhxbx
 
