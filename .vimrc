@@ -53,7 +53,7 @@ filetype plugin indent on
 " General (self-explanatory) stuff
 syntax on
 set showcmd
-let mapleader = "\<Space>"
+let mapleader = " "
 map <Leader>ra :%s/
 map <C-t> <esc>:tabnew<CR>
 
@@ -306,6 +306,10 @@ endif
 
 " YouCompleteMe
 " let g:loaded_youcompleteme = 1
+
+"Eclim
+let g:EclimCompletionMethod = 'omnifunc'
+map <Leader>i :JavaImport<CR>
 
 " Regular arrow keys in insert mode
 set nocompatible

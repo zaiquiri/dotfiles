@@ -5,11 +5,14 @@ RVM9=$HOME/.rvm/gems/ruby-1.9.3-p547/bin
 RVM=$HOME/.rvm/bin
 GOROOT=/usr/local/go
 GOBIN=/usr/local/go/bin
+GRADLE=/Users/zacharylindberg/Applications/gradle-2.6/bin
 
-export PATH=$RVM9:$LOCAL:$POSTGRES:$PATH:$RVM:$GOBIN
+export PATH=$RVM9:$LOCAL:$POSTGRES:$PATH:$RVM:$GOBIN:$GRADLE
 
 # Prompt
 source ~/.bash-git-prompt/gitprompt.sh
+# simple prompt
+# export PS1="\W \\$ \[$(tput sgr0)\]"
 
 #Colors
 export LSCOLORS=Gxexcxhxbx
@@ -36,6 +39,7 @@ alias srcbash='source ~/.bashrc'
 alias speed='ping -c10 8.8.8.8'
 alias cl='clear; ll'
 alias gop='export GOPATH=`pwd`'
+alias eclim='/Applications/Eclipse.app/Contents/Eclipse/eclimd'
 
 # git
 alias gs='git status '
