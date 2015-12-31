@@ -310,6 +310,8 @@ endif
 "Eclim
 let g:EclimCompletionMethod = 'omnifunc'
 map <Leader>i :JavaImport<CR>
+" hide vim's default autocomplete window:
+set completeopt-=preview
 
 " Regular arrow keys in insert mode
 set nocompatible
