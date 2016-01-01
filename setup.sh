@@ -83,6 +83,11 @@ git config --global push.default current
 touch ~/.gitignore_global
 echo ".DS_Store" >> ~/.gitignore_global
 git config --global core.excludesfile '~/.gitignore_global'
+# ...and crednetial cache
+curl -s -O https://github-media-downloads.s3.amazonaws.com/osx/git-credential-osxkeychain
+chmod u+x git-credential-osxkeychain
+sudo mv git-credential-osxkeychain "$(dirname $(which git))/git-credential-osxkeychain"
+git config --global credential.helper osxkeychain
 
 # Menu bar: show remaining battery time (on pre-10.8); hide percentage
 defaults write com.apple.menuextra.battery ShowPercent -string "NO"
