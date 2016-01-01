@@ -32,6 +32,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-cucumber'
 Plugin 'kana/vim-textobj-user'
 Plugin 'rking/ag.vim'
+Plugin 'gioele/vim-autoswap'
 " Ruby/Rails
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
@@ -212,6 +213,7 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore .hg
       \ --ignore .vtt
       \ --ignore .DS_Store
+      \ --ignore "*.class"
       \ --ignore "**/*.pyc"
       \ -g ""'
 " faster matching with cmatch
@@ -310,7 +312,8 @@ endif
 "Eclim
 let g:EclimCompletionMethod = 'omnifunc'
 map <Leader>i :JavaImport<CR>
-" hide vim's default autocomplete window:
+
+" hide vim's default autocomplete window
 set completeopt-=preview
 
 " Regular arrow keys in insert mode
