@@ -312,6 +312,7 @@ endif
 "Eclim
 let g:EclimCompletionMethod = 'omnifunc'
 map <Leader>i :JavaImport<CR>
+map <Leader>io :JavaImportOrganize<CR>
 
 " hide vim's default autocomplete window
 set completeopt-=preview
