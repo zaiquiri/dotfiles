@@ -1,6 +1,6 @@
 # dotfiles
 
-To setup, copy and paste this into terminal:
+To setup, install Developer Tools, then copy and paste this into a root terminal:
 ```
 cd ~
 git init
