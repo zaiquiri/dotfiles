@@ -5,7 +5,7 @@ RVM9=$HOME/.rvm/gems/ruby-1.9.3-p547/bin
 RVM=$HOME/.rvm/bin
 GOROOT=/usr/local/go
 GOBIN=/usr/local/go/bin
-GRADLE=/Users/zacharylindberg/Applications/gradle-2.6/bin
+GRADLE=/Users/zachlindberg/Applications/gradle-2.9/bin
 
 export PATH=$RVM9:$LOCAL:$POSTGRES:$PATH:$RVM:$GOBIN:$GRADLE
 
