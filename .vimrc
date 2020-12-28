@@ -12,7 +12,7 @@ call vundle#begin()
 " Let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" Plugins
+"Plugins
 Plugin 'JazzCore/ctrlp-cmatcher' "must compile
 Plugin 'Valloric/YouCompleteMe' "must compile
 Plugin 'kien/ctrlp.vim'
